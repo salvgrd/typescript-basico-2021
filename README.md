@@ -19,7 +19,9 @@ repositorio
 Para instalar TypeScript es necesario tener instalado NodeJS.
 
 Una vez hecho bastaria con ejecutar el siguiente comando en un terminal:
-
+```sh
+npm install -g typescript
+```
 
 [//]: #(Markdown Links!)
 
