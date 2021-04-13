@@ -23,8 +23,6 @@ Una vez hecho bastaria con ejecutar el siguiente comando en un terminal:
 npm install -g typescript
 ```
 
-[//]: #(Markdown Links!)
-
 [Git]: <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>
 [NodeJS]: <https://nodejs.org/es/download/>
 [VSCode]: <https://code.visualstudio.com/download>
