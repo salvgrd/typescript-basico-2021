@@ -8,7 +8,7 @@ repositorio
 
 ## Requisitos del curso
 
-- [git] - Control de versiones. Permitirá acceder a los distintos "modulos" del curso
+- [Git] - Control de versiones. Permitirá acceder a los distintos "modulos" del curso
 
 - [NodeJS] - Entorno de ejecucion de JavaScript en el ordenador.
 
@@ -25,6 +25,6 @@ npm install -g typescript
 
 [//]: #(Markdown Links!)
 
-[git]: <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>
+[Git]: <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>
 [NodeJS]: <https://nodejs.org/es/download/>
 [VSCode]: <https://code.visualstudio.com/download>
