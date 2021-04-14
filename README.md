@@ -8,7 +8,7 @@ repositorio
 
 ## Requisitos del curso
 
-- [git] - Control de versiones. Permitirá acceder a los distintos "modulos" del curso
+- [Git] - Control de versiones. Permitirá acceder a los distintos "modulos" del curso
 
 - [NodeJS] - Entorno de ejecucion de JavaScript en el ordenador.
 
@@ -23,8 +23,30 @@ Una vez hecho bastaria con ejecutar el siguiente comando en un terminal:
 npm install -g typescript
 ```
 
-[//]: #(Markdown Links!)
+## Instalando el curso
 
-[git]: <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>
+Para instalar el curso, es necesario ejecutar en la carpeta del curso el siguiente comando:
+```sh
+npm install
+```
+
+## Comandos npm
+
+```sh
+npm start
+```
+Ejecuta el archivo app.ts
+
+```sh
+npm run serve
+```
+Ejecuta el archivo app.ts, observando los cambios y recargandolo.
+
+```sh
+npm run build
+```
+Transpila app.ts a un archivo JavaScript con nombre "app.js"
+
+[Git]: <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>
 [NodeJS]: <https://nodejs.org/es/download/>
 [VSCode]: <https://code.visualstudio.com/download>
