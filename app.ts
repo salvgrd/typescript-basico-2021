@@ -14,9 +14,11 @@ console.log( booleano, '=>' ,typeof(booleano) )
 
 let estoNoEsUnTexto: number = 42;
 let nuevoTexto: string = 'Este texto es nuevo!'
+console.log(nuevoTexto)
 
 // nuevoTexto = estoNoEsUnTexto
 nuevoTexto = 'Este texto es mas nuevo!';
+console.log(nuevoTexto)
 
 /**
  * Operadores Matematicos
