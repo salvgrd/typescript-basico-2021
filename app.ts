@@ -34,6 +34,20 @@ total = 14 + 15;
 
 console.log('El total es: ' + total);
 
+// funciones
+
+function sumarUno(argumento: number) {
+    console.log('La funcion recibe: ', argumento)
+    return argumento + 1
+}
+
+const resultado = sumarUno(2)
+console.log('Salida de la funcion: ',resultado)
+
+const potencia = (argumento: number) => argumento ** 2
+
+console.log(potencia(2))
+
 /**
  * Operadores Logicos
  * Igualdad relativa: ==
@@ -67,17 +81,3 @@ console.log('El total es: ' + total);
 //     total += 1
 //     console.log(total)
 // }
-
-// funciones
-
-function sumarUno(argumento: number) {
-    console.log('La funcion recibe: ', argumento)
-    return argumento + 1
-}
-
-const resultado = sumarUno(2)
-console.log('Salida de la funcion: ',resultado)
-
-const potencia = (argumento: number) => argumento ** 2
-
-console.log(potencia(2))
