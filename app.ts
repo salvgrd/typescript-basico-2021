@@ -2,20 +2,20 @@
 
 // Arrays o listas
 
-let array = [ 1, 2, 3, 4 ]
+let array: number[] = [ 1, 2, 3, 4 ]
 
-array.push(5) // agrega un elemento al final de la lista
+const arrayDeLoQueSea: any[] = [ 123, "strings", false, [ "hola", "mundo" ], 456 ]
 
-array.pop() // elimina el ultimo elemento de la lista
+console.log('La longitud del array es:', array.length) // array.length devuelve la longitud de la lista
 
-array.unshift(5) // agrega un elemento al principio de la lista
-
-array.shift() // elimina el primer elemento de la lista
-
-console.log('La longitud del array es: ', array.length) // array.length devuelve la longitud de la lista
+// accediendo a las posiciones de una lista
 
 const posicion = 0
-console.log(`El elemento en la posicion ${posicion} es: ${array[posicion]}`) // array[posicion] accede a la posicion indicada en el array
+console.log(`El elemento en la posicion ${posicion} es:`, array[posicion]) // array[posicion] accede a la posicion indicada en el array
+
+array[posicion] = 157
+
+console.log(`Ahora el valor de la posicion ${posicion} es:`, array[posicion])
 
 // Recorriendo un array
 
