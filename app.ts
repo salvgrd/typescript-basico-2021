@@ -11,8 +11,9 @@ const producto = {
 
 // Tipado de objetos
 
-function soloAceptaProductos(producto: { nombre: string, precio: number }) {
+function soloAceptaProductos(producto: { nombre: string, precio: number, color?: string }) {
     console.log(`Nombre: ${producto.nombre}, Precio: ${producto.precio}`)
+    if (producto.color !== undefined) console.log(`Es de color ${producto.color}`)
 }
 
 soloAceptaProductos(producto)
