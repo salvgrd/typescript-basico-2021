@@ -62,3 +62,12 @@ console.log({ pezEncontrado })
 */
 const sumaDeNumeros: number = array.reduce( (total, numero) => { return total + numero }, 5)
 console.log({ listaDeNumeros: array, total: sumaDeNumeros })
+
+// construir un objeto nuevo con reduce
+
+const objetoDePeces = array.reduce( (acumulador, numero, idx) => {
+    acumulador[peces[idx]] = numero
+    return acumulador
+}, {})
+
+console.log(objetoDePeces)
