@@ -17,6 +17,10 @@ array[posicion] = 157
 
 console.log(`Ahora el valor de la posicion ${posicion} es:`, array[posicion])
 
+const nuevosNumeros = [ 5, 6, 7, 8 ]
+
+console.log({ arrayConSpread: [ 2, 3, ...nuevosNumeros, 11, 12] })
+
 // Recorriendo un array
 
 for (let i = 0; i < array.length; i++) {
