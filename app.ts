@@ -25,7 +25,11 @@ for (let i = 0; i < array.length; i++) {
 
 // Objetos o JSON
 
-let usuario = { clave: 'valor', nombre: 'Carlitos', edad: 23 }
+let usuario = { 
+    clave: 'valor', 
+    nombre: 'Carlitos', 
+    edad: 23 
+}
 
 // Acceso a las propiedades de un objeto
 
