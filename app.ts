@@ -60,3 +60,59 @@ const velocidadMasAlta: number = Math.max(...velocidades)
 const cocheMasVeloz: Coche = coches.find( coche => coche.velocidad_km_hora === velocidadMasAlta )
 
 console.log(`El coche mas veloz es: ${cocheMasVeloz.modelo}`)
+
+/**
+ * Tarea: A partir de una lista de objetos de Tipo “Producto” con las propiedades: { nombre: string, precio: number }.
+ * Crear un objeto de Tipo “Carrito” con las propiedades: { cesta: Producto[], cantidadProductos: number, total: number }
+ */
+
+// Creamos los tipos personalizados
+interface Producto {
+    nombre: string, 
+    precio: number,
+    caducidad?: string
+}
+
+interface Carrito {
+    productos: Producto[],
+    cantidadProductos: number,
+    total: number
+}
+
+// Solucion sin Array.prototype.reduce
+
+const productosDisponibles: Producto[] = [
+    { nombre: "Patata", precio: 1 },
+    { nombre: "Apio", precio: 1 },
+    { nombre: "Manzana", precio: 1 },
+    { nombre: "Detergente", precio: 6 },
+    { nombre: "Desodorante", precio: 5 },
+    { nombre: "Trufa", precio: 50 },
+    { nombre: "Cerdo", precio: 5 },
+]
+
+let carritoDeCompras: Carrito = {
+    productos: productosDisponibles,
+    cantidadProductos: productosDisponibles.length,
+    total: 0
+}
+
+// for...of nos permite definir su valor de iteracion dentro del contexto de bloque
+
+for (let producto of productosDisponibles) {
+    carritoDeCompras.total += producto.precio
+}
+
+console.log({ carritoDeCompras })
+
+// Solucion con Array.prototype.reduce
+
+const carritoHechoConReduce: Carrito = productosDisponibles.reduce( (acc, producto) => {
+    return {
+        productos: productosDisponibles,
+        cantidadProductos: productosDisponibles.length,
+        total: acc.total + producto.precio
+    }
+}, { productos: [], cantidadProductos: 0, total: 0 })
+
+console.log({ carritoHechoConReduce })
