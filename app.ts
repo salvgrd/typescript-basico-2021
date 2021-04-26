@@ -71,7 +71,8 @@ interface Cuadrado {
 
 interface Triangulo {
     tipo: "triangulo",
-    lado: number
+    base: number,
+    altura: number
 }
 
 /**
@@ -115,3 +116,7 @@ function obtenerArea(figura: Figura): number {
 //             return _chequeoExhaustivo
 //     }
 // }
+
+// const triangulo: Triangulo = { tipo: "triangulo", base: 3, altura: 7 }
+
+// console.log(`El area es: ${obtenerArea(triangulo)} cm`)
