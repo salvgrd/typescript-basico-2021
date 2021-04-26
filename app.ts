@@ -69,6 +69,11 @@ interface Cuadrado {
     lado: number
 }
 
+interface Triangulo {
+    tipo: "triangulo",
+    lado: number
+}
+
 /**
  * Cuando cada tipo en una union contiene una propiedad en comun definida como un tipo literal
  * TypeScript considera esa union como una "union discriminada"
@@ -86,3 +91,27 @@ function obtenerArea(figura: Figura): number {
             return figura.lado ** 2
     }
 }
+
+// Chequeuo Exhaustivo con type: never
+
+/**
+ * "never" es un tipo que puede asignarse a cualquier tipo, sin embargo, ningun tipo de dato es asignable a never
+ * Esto nos permite utilizarlo para aplicar chequeo exhaustivo en una condicion por defecto
+ * Por ejemplo, al implementarlo en este caso devolvera un error de TypeScript, ya que no hemos tomado en cuenta todos los casos posibles
+ */
+
+// type Figura = Circulo | Cuadrado | Triangulo
+
+// function obtenerArea(figura: Figura): number {
+//     switch (figura.tipo) {
+//         case "circulo":
+//             return Math.PI * figura.radio ** 2
+        
+//         case "cuadrado":
+//             return figura.lado ** 2
+
+//         default: 
+//             const _chequeoExhaustivo: never = figura;
+//             return _chequeoExhaustivo
+//     }
+// }
