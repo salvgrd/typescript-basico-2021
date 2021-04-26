@@ -103,6 +103,9 @@ for (let producto of productosDisponibles) {
     carritoDeCompras.total += producto.precio
 }
 
+// Array.prototype.forEach nos puede ser de utilidad aqui.
+// productosDisponibles.forEach( producto => carritoDeCompras.total += producto.precio )
+
 console.log({ carritoDeCompras })
 
 // Solucion con Array.prototype.reduce
