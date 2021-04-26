@@ -34,16 +34,60 @@ console.log(agregarTopping(cheesecake))
  * galleta => marca
  * nata => deDieta
  */
-interface Topping {
-    nombre: "sirope" | "nueces" | "galleta" | "nata"
-    sabor?: string,
-    tipo?: "mani" | "almendras",
-    marca?: string,
-    deDieta?: boolean
+
+// interface Topping {
+//     nombre: "sirope" | "nueces" | "galleta" | "nata"
+//     sabor?: string,
+//     tipo?: "mani" | "almendras",
+//     marca?: string,
+//     deDieta?: boolean
+// }
+
+interface Sirope {
+    nombre: "sirope",
+    sabor: string
 }
 
-function mostrarInformacion(topping: Topping) {
-    console.log(topping.sabor)
+interface Nueces {
+    nombre: "nueces",
+    tipo: "mani" | "almendras",
 }
+
+interface Galleta {
+    nombre: "galleta",
+    marca: string
+}
+
+interface Nata {
+    nombre: "nata",
+    deDieta: boolean
+}
+
+type Topping = Sirope | Nueces | Galleta | Nata
+
+function mostrarInformacion(topping: Topping) {
+    switch (topping.nombre) {
+        case "sirope":
+            console.log(`El sabor del sirope es: ${topping.sabor}`)
+            break;
+        
+        case "nueces":
+            console.log(`Lleva frutos secos de tipo: ${topping.tipo}`)
+            break;
+
+        case "galleta":
+            console.log(`La marca de las galletas es: ${topping.marca}`)
+            break;
+
+        case "nata":
+            console.log(`La nata es de dieta?: ${topping.deDieta}`)
+            break;
+
+        default:
+            break;
+    }
+}
+
+mostrarInformacion({ nombre: "galleta", marca: "Oreo" })
 
 // Ejercicio 3: Al ejercicio anterior, implementarle un nuevo tipo de topping llamado "chispas" cuya caracteristica sea tipo => "chocolate" | "colores"
