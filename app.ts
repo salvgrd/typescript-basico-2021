@@ -92,7 +92,7 @@ function obtenerArea(figura: Figura): number {
     }
 }
 
-// Chequeuo Exhaustivo con type: never
+// Chequeo Exhaustivo con type: never
 
 /**
  * "never" es un tipo que puede asignarse a cualquier tipo, sin embargo, ningun tipo de dato es asignable a never
