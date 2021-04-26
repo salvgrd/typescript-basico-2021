@@ -13,7 +13,13 @@ interface Pastel {
 }
 
 function agregarTopping(pastel: Pastel, nuevoTopping?: string | undefined): Pastel {
-    return { nombre: pastel.nombre, toppings: [...pastel.toppings, nuevoTopping] }
+    if (pastel.toppings && typeof nuevoTopping === "string" && nuevoTopping) {
+        return { nombre: pastel.nombre, toppings: [...pastel.toppings, nuevoTopping] }
+    } else if (nuevoTopping) {
+        return { nombre: pastel.nombre, toppings: [ nuevoTopping ] }
+    } else {
+        return pastel
+    }
 }
 
 const cheesecake: Pastel = { nombre: "cheesecake" }
