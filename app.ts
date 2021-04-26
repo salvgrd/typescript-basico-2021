@@ -10,7 +10,7 @@ function incrementarContador(cantidad: string | number) {
     if (typeof cantidad === "number") {
         contador += cantidad
     }
-    else if (typeof cantidad === "string" && !Number.isNaN(parseInt(cantidad))) { // Controlamos el tipo de dato y eliminamos un valor no deseado
+    else if (typeof cantidad === "string" && !isNaN(parseInt(cantidad))) { // Controlamos el tipo de dato y eliminamos un valor no deseado
         const numberFromString: number = parseInt(cantidad)
         contador += numberFromString
     } else {
@@ -48,6 +48,8 @@ function imprimirTodoPorPantalla(input: string | string[] | null) {
         }
     } else if (typeof input === "string") {
         console.log(input)
+    } else {
+        console.log({ tipoDeNull: typeof input })
     }
 }
 
