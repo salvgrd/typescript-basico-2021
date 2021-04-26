@@ -41,7 +41,7 @@ console.log({ contador })
  * function
  */
 
-// narrowing a truthy
+// chequeo a truthy
 
 function imprimirTodoPorPantalla(input: string | string[] | null) {
     if(input && typeof input === "object") { // los Arrays en JS son de tipo "object", al igual que null!
@@ -56,3 +56,33 @@ function imprimirTodoPorPantalla(input: string | string[] | null) {
 // podriamos envolver toda la funcion en un checkeo global a truthy, pero no nos permitiria manejar el caso a string vacio ("") correctamente.
 
 imprimirTodoPorPantalla(null)
+
+// Uniones discriminadas
+
+interface Circulo {
+    tipo: "circulo",
+    radio: number
+}
+
+interface Cuadrado {
+    tipo: "cuadrado",
+    lado: number
+}
+
+/**
+ * Cuando cada tipo en una union contiene una propiedad en comun definida como un tipo literal
+ * TypeScript considera esa union como una "union discriminada"
+ * Esto nos permite aplicar narrowing a cada miembro de la union
+ */
+
+type Figura = Circulo | Cuadrado
+
+function obtenerArea(figura: Figura): number {
+    switch (figura.tipo) {
+        case "circulo":
+            return Math.PI * figura.radio ** 2
+        
+        case "cuadrado":
+            return figura.lado ** 2
+    }
+}
