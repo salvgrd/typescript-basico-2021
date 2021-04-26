@@ -63,7 +63,12 @@ interface Nata {
     deDieta: boolean
 }
 
-type Topping = Sirope | Nueces | Galleta | Nata
+interface Chispas {
+    nombre: "chispas",
+    tipo: "chocolate" | "colores"
+}
+
+type Topping = Sirope | Nueces | Galleta | Nata | Chispas
 
 function mostrarInformacion(topping: Topping) {
     switch (topping.nombre) {
@@ -84,7 +89,8 @@ function mostrarInformacion(topping: Topping) {
             break;
 
         default:
-            break;
+            const _exhaustiveCheck: never = topping
+            return _exhaustiveCheck
     }
 }
 
