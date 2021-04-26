@@ -1,5 +1,3 @@
-const helloWorld = 'Hola Mundo!'
-
 // Narrowing
 
 // type guards usando typeof
