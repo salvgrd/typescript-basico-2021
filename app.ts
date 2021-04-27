@@ -71,3 +71,40 @@ function funcionDeMapeo<Entrada, Salida>(arr: Entrada[], funcion: (el: Entrada) 
 const parseadosANumber = funcionDeMapeo([ "1", "2", "3"], (el) => parseInt(el))
 
 console.log({ parseadosANumber })
+
+// Trabajando con tipado generico
+
+/**
+ * Constrainst o Limitaciones:
+ * Es posible limitar un tipo generico haciendo que extienda un tipo especifico
+ */
+
+// Declaramos que ambos elementos deben ser del mismo tipo, y ademas, tener una propiedad length
+function obtenerElementoMayor<Type extends { length: number }>(a: Type, b: Type): Type {
+    return a.length > b.length ? a : b;
+}
+
+obtenerElementoMayor([1,2,3], [4,5,6,7])
+obtenerElementoMayor("Hola mundo!", "Hello world!")
+
+// Los Number no tienen propiedad length, asi que hemos limitado exitosamente el tipo generico
+obtenerElementoMayor(500, 200)
+
+// El tipado generico nos permite aceptar un solo tipo de dato, a menos que se especifique explicitamente
+
+function combinarArrays<Type>(a: Type[], b: Type[]): Type[] {
+    return [ ...a, ...b ]
+}
+
+combinarArrays([ 1, 2 ,3 ], [ "a", "b", "c" ]) // los tipos de estos arrays son number[] y string[]
+
+// Sin embargo, es posible especificar el tipo que va a recibir el metodo
+
+combinarArrays<number | string>([ 1, 2 ,3 ], [ "a", "b", "c" ])
+
+/**
+ * Buenas practicas para las funciones genericas:
+ * 1.- Cuando sea posible, priorizar el uso del tipo generico en lugar de limitarlo.
+ * 2.- Siempre utilizar la menor cantidad posible de parametros genericos (evitar <Input, Holding, Func, Output>)
+ * 3.- Si un parametro generico solo se usa en un sitio, reconsiderar si realmente lo necesitamos.
+ */
