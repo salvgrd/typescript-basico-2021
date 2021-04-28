@@ -1,12 +1,14 @@
-import { Producto, Carrito } from 'interfaces'
+import { Producto, Carrito } from './interfaces'
+import { stringify, jsonParse } from './utils'
 import fs = require('fs')
 
 /**
  * Ejercicio 1: obtener los productos desde "productos.json", implementar interfaz "Producto" y mostralos por pantalla
  */
 
+const productos = jsonParse<Producto>(fs.readFileSync("productos.json", "utf-8"))
 
-
+console.log({ productos })
 
 
 // Ejemplo:
