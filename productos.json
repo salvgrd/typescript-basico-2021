@@ -1,0 +1,9 @@
+[
+    { "nombre": "Patata", "precio": 1 },
+    { "nombre": "Apio", "precio": 1 },
+    { "nombre": "Manzana", "precio": 1 },
+    { "nombre": "Detergente", "precio": 6 },
+    { "nombre": "Desodorante", "precio": 5 },
+    { "nombre": "Trufa", "precio": 50 },
+    { "nombre": "Cerdo", "precio": 5 }
+]
