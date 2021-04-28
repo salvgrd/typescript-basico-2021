@@ -10,10 +10,19 @@ interface Cuadrado {
 }
 
 interface Triangulo {
-    name: "triangulo"
+    name: "triangulo",
     area: number
 }
 
-function cuadradoDelArea(fig) {
-    return fig.area ** 2
+const equilatero: Triangulo = {
+    name: "triangulo",
+    area: 150
 }
+
+function cuadradoDelArea<Type extends { area: number }>(fig: Type): Type {
+    let newFig: Type = fig
+    newFig.area = fig.area **2
+    return newFig
+}
+
+console.log({ salida: cuadradoDelArea(equilatero)})
