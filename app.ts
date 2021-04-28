@@ -6,36 +6,20 @@ import fs = require('fs')
  * Ejercicio 1: obtener los productos desde "productos.json", implementar interfaz "Producto" y mostralos por pantalla
  */
 
-const productos = jsonParse<Producto>(fs.readFileSync("productos.json", "utf-8"))
+const productos: Producto[] = jsonParse<Producto>(fs.readFileSync("productos.json", "utf-8"))
+let accBase: Carrito = { productos: [], cantidadProductos: 0, total: 0 }
 
-console.log({ productos })
 
+const carrito: Carrito = productos.reduce( (acc, producto) => {
+    return {
+        productos: productos,
+        cantidadProductos: productos.length,
+        total: acc.total + producto.precio
+    }
+}, accBase)
 
-// Ejemplo:
+const carritoStr: string = stringify<Carrito>(carrito, null, '\t')
 
-// let carritoDeCompras: Carrito = {
-//     productos: productosDisponibles,
-//     cantidadProductos: productosDisponibles.length,
-//     total: 0
-// }
+fs.writeFileSync("carrito.json", carritoStr)
 
-// // for...of nos permite definir su valor de iteracion dentro del contexto de bloque
-
-// for (let producto of productosDisponibles) {
-//     carritoDeCompras.total += producto.precio
-// }
-
-// // Array.prototype.forEach nos puede ser de utilidad aqui.
-// // productosDisponibles.forEach( producto => carritoDeCompras.total += producto.precio )
-
-// console.log({ carritoDeCompras })
-
-// // Solucion con Array.prototype.reduce
-
-// const carritoHechoConReduce: Carrito = productosDisponibles.reduce( (acc, producto) => {
-//     return {
-//         productos: productosDisponibles,
-//         cantidadProductos: productosDisponibles.length,
-//         total: acc.total + producto.precio
-//     }
-// }, { productos: [], cantidadProductos: 0, total: 0 })
+// Tarea: leer ficheros, comprobar existencia de ficheros y modificar el carrito con codigo.
