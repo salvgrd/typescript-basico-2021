@@ -75,7 +75,7 @@ console.log({ parseadosANumber })
 // Trabajando con tipado generico
 
 /**
- * Constrainst o Limitaciones:
+ * Constraints o Limitaciones:
  * Es posible limitar un tipo generico haciendo que extienda un tipo especifico
  */
 
