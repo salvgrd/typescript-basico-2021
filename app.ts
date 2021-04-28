@@ -1,6 +1,6 @@
 // Modulos y ficheros
 
-import { saludar } from './funciones.js'
+import { saludar } from './funciones'
 import fs = require("fs")
 
 saludar()
