@@ -1,5 +1,15 @@
+import chalk from 'chalk'
+
 function saludar() {
-    console.log("Saludos desde otro archivo")
+    console.log(chalk.redBright("Saludos desde otro archivo"))
 }
 
-export { saludar }
+type User = {
+    name: string,
+    age: number,
+    gender: 'Male' | 'Female',
+    department: string,
+    car: 'Honda'
+}
+
+export { saludar, User }
