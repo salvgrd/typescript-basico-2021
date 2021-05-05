@@ -15,6 +15,8 @@ import figlet from "figlet"
  * Nos permita ver los productos disponibles y sus precios
  */
 
+// npm run build && npm run local
+
 console.clear()
 
 class App {
@@ -34,11 +36,12 @@ class App {
   }
 
   async promptOptions() {
+    console.log({ credito: this.credito })
     const answer = await inquirer.prompt({
         type: 'list',
         name: 'option',
         choices: [
-            "choice 1",
+            "Agregar credito",
             "choice 2"
         ]
     })
@@ -47,14 +50,26 @@ class App {
 
   executeOption(answer: { option: string }) {
     switch (answer.option) {
-      case "choice 1":
-        console.log("hacer cosas")
+      case "Agregar credito":
+        this.agregarCredito()
         break;
       
       case "choice 2":
         console.log(`mostrar credito: ${this.credito}`);
       break;
     }
+  }
+  
+  async agregarCredito() {
+    const { creditoAdicional } = await inquirer.prompt([
+      {
+        type: "number",
+        name: "creditoAdicional",
+        message: "Cuanto credito?",
+        default: 0
+      }
+    ])
+    this.credito += creditoAdicional;
   }
 }
 
