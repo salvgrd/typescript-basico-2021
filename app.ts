@@ -23,4 +23,4 @@ fs.writeFileSync("carrito.json", carritoStr)
 
 // Tarea: leer ficheros, comprobar existencia de ficheros y modificar el carrito con codigo.
 
-console.log(fs.existsSync("camrrito.json"))
+console.log(fs.existsSync("carrito.json"))
