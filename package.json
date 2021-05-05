@@ -5,7 +5,8 @@
   "scripts": {
     "start": "ts-node app.ts",
     "serve": "nodemon",
-    "build": "tsc app.ts"
+    "build": "tsc",
+    "local": "node dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,12 +19,14 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "commander": "^7.2.0",
+    "figlet": "^1.5.0",
     "inquirer": "^8.0.0",
     "ora": "^5.4.0"
   },
   "devDependencies": {
     "@types/chalk": "^2.2.0",
     "@types/commander": "^2.12.2",
+    "@types/figlet": "^1.5.1",
     "@types/inquirer": "^7.3.1",
     "@types/node": "^15.0.1",
     "@types/ora": "^3.2.0",

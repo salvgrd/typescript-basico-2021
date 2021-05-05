@@ -1,25 +1,30 @@
-import { Producto, Carrito } from './interfaces'
-import { stringify, jsonParse } from './utils'
-import fs = require('fs')
+#!/usr/bin/env node
 
-/**
- * Ejercicio 1: obtener los productos desde "productos.json", implementar interfaz "Producto" y mostralos por pantalla
- */
+import inquirer from "inquirer"
+import chalk = require("chalk")
+import figlet from "figlet"
+// import { Producto, Carrito } from './interfaces'
+// import { stringify, jsonParse } from './utils'
+// import fs = require('fs')
 
-const productos: Producto[] = jsonParse<Producto>(fs.readFileSync("productos.json", "utf-8"))
-let accBase: Carrito = { productos: [], cantidadProductos: 0, total: 0 }
+console.clear()
 
+console.log(
+    chalk.green(
+      figlet.textSync('MercaScript', { horizontalLayout: 'full' })
+    )
+  );
 
-const carrito: Carrito = productos.reduce( (acc, producto) => {
-    return {
-        productos: productos,
-        cantidadProductos: productos.length,
-        total: acc.total + producto.precio
-    }
-}, accBase)
+async function prompOptions() {
+    const answer = await inquirer.prompt({
+        type: 'list',
+        name: 'Actions',
+        choices: [
+            "choice 1",
+            "choice 2"
+        ]
+    })
+    console.log(answer)
+}
 
-const carritoStr: string = stringify<Carrito>(carrito, null, '\t')
-
-fs.writeFileSync("carrito.json", carritoStr)
-
-// Tarea: leer ficheros, comprobar existencia de ficheros y modificar el carrito con codigo.
+prompOptions()
