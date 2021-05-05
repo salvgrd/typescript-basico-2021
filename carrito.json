@@ -27,8 +27,12 @@
 		{
 			"nombre": "Cerdo",
 			"precio": 5
+		},
+		{
+			"nombre": "Batata",
+			"precio": 0.1
 		}
 	],
-	"cantidadProductos": 7,
-	"total": 69
+	"cantidadProductos": 8,
+	"total": 69.1
 }
