@@ -3,15 +3,15 @@
  * TypeScript nos permite agregar anotaciones de tipos, relaciones entre clases y con otros tipos
  */
 
-class Punto {
-    x: number;
-    y: number;
-}
+// class Punto {
+//     x: number = 0;
+//     y: number = 0;
+// }
 
-const pt = new Punto()
+// const pt = new Punto()
 
-pt.x = 0
-pt.y = 1
+// pt.x = 0
+// pt.y = 1
 
 // pt.z // No existe la propiedad en el objeto
 
@@ -22,7 +22,7 @@ pt.y = 1
 
 
 // Uso del constructor
-class saludo {
+class Saludo {
     saludo: string;
     nombre: string;
 
@@ -32,7 +32,7 @@ class saludo {
     }
 }
 
-const greeting = new saludo("Privet!");
+const greeting = new Saludo("Privet!");
 console.log(`${greeting.saludo} ${greeting.nombre}`)
 
 /**
@@ -43,7 +43,7 @@ console.log(`${greeting.saludo} ${greeting.nombre}`)
 
 // Extendiendo clases, uso de super, readonly, y metodos.
 
-class autoSaludable extends saludo {
+class AutoSaludable extends Saludo {
 
     // readonly nos permite definir propiedades que solo pueden asignarse dentro del constructor
     readonly _apellido: string;
@@ -54,7 +54,7 @@ class autoSaludable extends saludo {
         this._apellido = "Maximoff"
 
         // es posible invocar a los metodos de la clase dentro del constructor. para ejecutar en tiempo de instancia
-        // this.autoSaludar()
+        this.autoSaludar()
     }
 
     autoSaludar(): void {
@@ -66,9 +66,7 @@ class autoSaludable extends saludo {
     }
 }
 
-const wanda = new autoSaludable("Privet!")
-
-wanda.autoSaludar();
+const wanda = new AutoSaludable("Privet!")
 
 /**
  * Ejercicio 1: crear una clase "Vector", que reciba dos Puntos y ademas tenga las propiedades:
@@ -78,22 +76,51 @@ wanda.autoSaludar();
 
 // Usar esta clase Punto
 
-//  class Punto {
-//     x: number;
-//     y: number;
+ class Punto {
+    x: number;
+    y: number;
 
-//     constructor(x: number, y: number) {
-//         this.x = x
-//         this.y = y
-//     }
-// }
+    constructor(x: number, y: number) {
+        this.x = x
+        this.y = y
+    }
+}
+
+/*
+
+class Vector {
+  origen: Punto;
+  final: Punto;
+  readonly modulo: number;
+  readonly direccion: number;
+
+  constructor(origen: Punto, final: Punto) {
+    this.origen = origen;
+    this.final = final;
+    this.modulo = this.calcularModulo()
+    this.direccion = this.calcularDireccion()
+  }
+
+  calcularModulo() {
+    return Math.sqrt( (this.final.x - this.origen.x)**2 + (this.final.y - this.origen.y)**2 )
+  }
+
+  calcularDireccion() {
+    return Math.atan( (this.final.x - this.origen.x) / (this.final.y - this.origen.y) )
+  }
+}
+
+const vector = new Vector(new Punto(0, 0), new Punto(1, 1));
+console.log(vector.modulo, vector.direccion)
+
+*/
 
 // Getters y Setters
 
 // Nos permiten aplicar logica al acceso de propiedades
 // Es especialmente util para trabajar con propiedades privadas o protegidas
 
-class  Vector {
+class Vector {
     protected _longitud = 0 // inicializamos a 0
 
     get longitud() {
@@ -138,7 +165,7 @@ const b = new Base();
 // b.prop // da error
 
 class Subclass extends Base {
-    prop = 456
+    protected prop = 456
 }
 const s = new Subclass();
 
@@ -161,7 +188,37 @@ const s = new Subclass();
 
 // encripcion: str.split("").reverse().join("-")
 
-/** Ejercicio aquí */
+/*
+
+class User {
+
+  private _password: string = ""
+
+  get password(): string {
+    return this._password
+  }
+
+  set password(str: string) {
+    this._password = this._encrypt(str)
+  }
+
+  private _encrypt(str: string) {
+    return str.split("").reverse().join("-")
+  }
+
+  login(str: string) {
+    return this.password === this._encrypt(str)
+  }
+}
+
+const usuario = new User();
+
+usuario.password = "supercontraseñasegura2303"
+console.log(usuario.password)
+
+console.log(`Login ${usuario.login("supercontraseñasegura2303") ? "exitoso" : "fallido"}`)
+
+*/
 
 // Miembros estaticos (static)
 
