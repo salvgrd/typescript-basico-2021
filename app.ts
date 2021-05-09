@@ -19,17 +19,17 @@ import fs = require('fs')
 
 class App {
   credito: number = 0;
-
-  readonly availableProducts: Producto[] = []
-  cart: Carrito = { productos: [], total: 0, cantidadProductos: 0 }
   menuMessage = ''
-
   readonly options = {
       addCredit: "Agregar credito",
       buyProducts: "Comprar Productos",
       displayCart: "Ver Carrito",
       pay: "Pagar",
   }
+
+  readonly availableProducts: Producto[] = []
+  cart: Carrito = { productos: [], total: 0, cantidadProductos: 0 }
+
 
   get productsNames() {
       return this.availableProducts.map( p => p.nombre)
